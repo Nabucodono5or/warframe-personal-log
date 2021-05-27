@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@types/node": "^15.6.1",
+    "@types/yargs": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.27.0",
@@ -132,11 +134,15 @@
     "widest-line": "^3.1.0",
     "wrappy": "^1.0.2",
     "write-file-atomic": "^3.0.3",
-    "xdg-basedir": "^4.0.0"
+    "xdg-basedir": "^4.0.0",
+    "yargs": "^17.0.1"
   },
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc"
+  },
+  "bin": {
+    "warframe": "./dist/server.js"
   },
   "repository": {
     "type": "git",
