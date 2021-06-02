@@ -1,33 +1,32 @@
 #! /usr/bin/env node
+import inquirer from 'inquirer';
 
-import { Command } from 'commander';
+const questions = [
+    {
+        type: 'confirm',
+        name: 'toBeDelivered',
+        message: 'Is this for delivery?',
+        default: false,
+    },
+    {
+        type: 'list',
+        name: 'size',
+        message: 'What size do you need?',
+        choices: ['Large', 'Medium', 'Small'],
+        filter(val: string) {
+            return val.toLowerCase();
+        },
+    },
+];
 
-const program = new Command();
+async function run() {
+    const answers = await inquirer.prompt(questions);
+    if (answers.toBeDelivered) console.log('so wait for you travel...');
+    console.log(JSON.stringify(answers, null, '  '));
+}
 
-program.version('0.0.1');
+run();
 
-// program
-//     .command('clone <source> [destination]')
-//     .description('clone a repository into a newly created directory')
-//     .action((source, destination) => {
-//         console.log(`cloned from ${source} to destination ${destination}`);
-//     });
-
-program
-    .version('0.1.0')
-    .command('user')
-    .arguments('<name>')
-    .option('-U, --upper', 'convert name to upper case')
-    .option('-l, --lower', 'convert name to lower case')
-    .description('test command', {
-        name: 'display simple name',
-    })
-    .action((name, options, command) => {
-        let inputName: string = name;
-        if (options.upper) inputName = name.toUpperCase();
-        if (options.lower) inputName = name.toLowerCase();
-        console.log('My name is ', inputName);
-        console.log('Executado por ', command);
-    });
-
-program.parse(process.argv);
+// inquirer.prompt(questions).then((answers) => {
+//     if (answers.toBeDelivered) console.log('so wait for you travel...');
+// });
