@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-import mainMenu from './menu';
+import mainMenu from './controllers/menu';
 
 function run() {
     console.log('Welcome to test of the personal managemente itens warframe');
