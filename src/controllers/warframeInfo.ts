@@ -1,7 +1,7 @@
-import Warframe from '../schemas/warframe';
+import { Warframe, WarframeInterface } from '../schemas/warframe';
 
 const warframeInfo = async (warframeName: string): Promise<void> => {
-    const warframe = await Warframe.find({ name: warframeName });
+    const warframe: WarframeInterface[] = await Warframe.find({ name: warframeName });
     console.log(warframe);
 };
 

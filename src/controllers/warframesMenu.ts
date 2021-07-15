@@ -1,11 +1,13 @@
 import inquirer from 'inquirer';
-import Warframe from '../schemas/warframe';
+import { Warframe, WarframeInterface } from '../schemas/warframe';
+import { QuestionsInterface } from '../types/questions';
+import { answersInterface } from '../types/answers';
 import warframeInfo from './warframeInfo';
 
-const indexQuestion = async () => {
-    const warframes = await Warframe.find({}, { name: 1 });
+const indexQuestion = async (): Promise<QuestionsInterface> => {
+    const warframes: WarframeInterface[] = await Warframe.find({}, { name: 1 });
 
-    const questions = [
+    const questions: QuestionsInterface = [
         {
             type: 'list',
             name: 'options',
@@ -18,8 +20,8 @@ const indexQuestion = async () => {
 };
 
 const warframesMenu = async (): Promise<void> => {
-    const questions = await indexQuestion();
-    const answers = await inquirer.prompt(questions);
+    const questions: QuestionsInterface = await indexQuestion();
+    const answers: answersInterface<string> = await inquirer.prompt(questions);
     warframeInfo(answers.options);
 };
 

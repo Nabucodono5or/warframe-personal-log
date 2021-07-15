@@ -1,6 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 
-interface WarframeInterface extends Document {
+export interface WarframeInterface extends Document {
     name: string;
     nameCommon: string;
     helth: number;
@@ -37,4 +37,4 @@ const WarframeSchema = new Schema(
     },
 );
 
-export default model<WarframeInterface>('Warframe', WarframeSchema);
+export const Warframe = model<WarframeInterface>('Warframe', WarframeSchema);
