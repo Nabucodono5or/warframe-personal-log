@@ -16,10 +16,10 @@ const indexQuestion = async () => {
     return questions;
 };
 
-const secondaryWarframesMenu = async (): Promise<void> => {
+const warframesMenu = async (): Promise<void> => {
     const questions = await indexQuestion();
     const answers = await inquirer.prompt(questions);
     console.log(answers);
 };
 
-export default secondaryWarframesMenu;
+export default warframesMenu;
