@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import Warframe from '../schemas/warframe';
 
-const index = async () => {
+const indexQuestion = async () => {
     const warframes = await Warframe.find({}, { name: 1 });
 
     const questions = [
@@ -16,10 +16,10 @@ const index = async () => {
     return questions;
 };
 
-const secondaryMenu = async (): Promise<void> => {
-    const questions = await index();
+const secondaryWarframesMenu = async (): Promise<void> => {
+    const questions = await indexQuestion();
     const answers = await inquirer.prompt(questions);
     console.log(answers);
 };
 
-export default secondaryMenu;
+export default secondaryWarframesMenu;

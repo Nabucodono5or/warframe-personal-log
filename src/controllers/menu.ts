@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import secondaryMenu from './secondaryMenu';
+import secondaryWarframesMenu from './secondaryMenu';
 
 const questions = [
     {
@@ -12,7 +12,7 @@ const questions = [
 
 const mainMenu = async (): Promise<void> => {
     const answers = await inquirer.prompt(questions);
-    if (answers.options === 'Warframes') secondaryMenu();
+    if (answers.options === 'Warframes') secondaryWarframesMenu();
 };
 
 export default mainMenu;
