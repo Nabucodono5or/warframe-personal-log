@@ -1,8 +1,9 @@
 import inquirer from 'inquirer';
+import Warframe from '../schemas/warframe';
 
 // pegar os warframes do banco de dados retornando aqui
 
-const warframes = ['Valkyr', 'Nezha', 'Wukong', 'Octavia'];
+const warframes = Warframe.find({}, { name: 1 });
 
 const questions = [
     {
