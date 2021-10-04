@@ -6,6 +6,18 @@ const lineInfo = (): void => {
     console.log('');
 };
 
+const listAcanes = (element: WarframeInterface): void => {
+    element.arcanes.forEach((arcane) => {
+        console.log(`Arcane => ${arcane}`);
+    });
+};
+
+const listMods = (element: WarframeInterface): void => {
+    element.mods.forEach((mod) => {
+        console.log(`=> ${mod}`);
+    });
+};
+
 const displayInfo = (element: WarframeInterface): void => {
     console.log('');
     console.log('===================================================================');
@@ -20,9 +32,7 @@ const displayInfo = (element: WarframeInterface): void => {
 
     lineInfo();
 
-    element.arcanes.forEach((arcane) => {
-        console.log(`Arcane => ${arcane}`);
-    });
+    listAcanes(element);
 
     lineInfo();
 
@@ -34,10 +44,7 @@ const displayInfo = (element: WarframeInterface): void => {
     lineInfo();
 
     console.log('******** Lista de Mods **********');
-
-    element.mods.forEach((mod) => {
-        console.log(`=> ${mod}`);
-    });
+    listMods(element);
 };
 
 const warframeInfo = async (warframeName: string): Promise<void> => {
@@ -46,37 +53,3 @@ const warframeInfo = async (warframeName: string): Promise<void> => {
 };
 
 export default warframeInfo;
-
-/*
-[
-  {
-    mods: [
-      'swift momentum',
-      'handspring',
-      'overextended',
-      'augur reach',
-      'venari bodyguard',
-      'primed continuity',
-      'fleeting expertise',
-      'primed flow',
-      'accumulating whipclaw',
-      'rolling guard'
-    ],
-    arcanes: [ 'arcane energize', 'arcane fury' ],
-    _id: 60f03be56f94621bf3fed20e,
-    name: 'Khora',
-    helth: 375,
-    shield: 300,
-    armor: 275,
-    energy: 531,
-    sprint: '1.05',
-    duration: 95,
-    efficiency: 160,
-    range: 220,
-    strength: 40,
-    date: 'Thu Jul 15 2021 10:45:09 GMT-0300 (-03)',
-    nameCommon: 'khora'
-  }
-]
-
-*/
