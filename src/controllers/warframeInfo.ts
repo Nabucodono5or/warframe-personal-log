@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { Warframe, WarframeInterface } from '../schemas/warframe';
 
 const lineInfo = (): void => {
@@ -45,11 +46,13 @@ const displayInfo = (element: WarframeInterface): void => {
 
     console.log('******** Lista de Mods **********');
     listMods(element);
+    console.log('');
 };
 
 const warframeInfo = async (warframeName: string): Promise<void> => {
     const warframe: WarframeInterface[] = await Warframe.find({ name: warframeName });
     warframe.forEach(displayInfo);
+    mongoose.connection.close();
 };
 
 export default warframeInfo;
