@@ -2,7 +2,7 @@ import inquirer from 'inquirer';
 import { Secondary, SecondaryInterface } from '../schemas/secondary';
 import { QuestionsInterface } from '../types/questions';
 import { answersInterface } from '../types/answers';
-// import primaryInfo from './primaryInfo';
+import secondaryInfo from './secondaryInfo';
 
 const onlyNamesForMenu = (secondaries: SecondaryInterface[]): string[] => {
     const namesOfSecondaries: string[] = [];
@@ -30,7 +30,7 @@ const secondariesMenu = async (): Promise<void> => {
     const questions: QuestionsInterface = await indexQuestion();
     const answers: answersInterface<string> = await inquirer.prompt(questions);
     console.log(answers.options);
-    // primaryInfo(answers.options);
+    secondaryInfo(answers.options);
 };
 
 export default secondariesMenu;
