@@ -2,7 +2,7 @@ import inquirer from 'inquirer';
 import { PrimaryInterface, Primary } from '../schemas/primary';
 import { QuestionsInterface } from '../types/questions';
 import { answersInterface } from '../types/answers';
-// import warframeInfo from './warframeInfo';
+import primaryInfo from './primaryInfo';
 
 const indexQuestion = async (): Promise<QuestionsInterface> => {
     const primaries: PrimaryInterface[] = await Primary.find({}, { name: 1 });
@@ -23,7 +23,7 @@ const primariesMenu = async (): Promise<void> => {
     const questions: QuestionsInterface = await indexQuestion();
     const answers: answersInterface<string> = await inquirer.prompt(questions);
     console.log(answers.options);
-    // warframeInfo(answers.options);
+    primaryInfo(answers.options);
 };
 
 export default primariesMenu;

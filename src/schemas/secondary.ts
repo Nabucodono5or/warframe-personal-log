@@ -33,7 +33,7 @@ const SecondarySchema = new Schema(
         arcane: String,
     },
     {
-        timestamps: true,
+        collection: 'secondary',
     },
 );
 
