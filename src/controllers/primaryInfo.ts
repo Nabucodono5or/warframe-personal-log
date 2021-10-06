@@ -37,6 +37,10 @@ const displayInfo = (element: PrimaryInterface): void => {
     console.log(` | Accuracy  | ${element.accuracy}`);
     console.log(` | Reload    | ${element.reload}`);
 
+    console.log('');
+    console.log(`--- Noise ${element.noise}`);
+    console.log('');
+
     lineInfo();
 
     console.log(` | Critical Chance    | ${element.criticalChance}%`);
